@@ -20,10 +20,10 @@ Installing an extension is as simple as cloning (or moving) your extension direc
 
 This extension has dependencies that conflict with those of [kraken](http://ccb.jhu.edu/software/kraken/) which is used in the regular Sunbeam pipeline. Therefore, it is run with in its own Conda environment (which is accounted for in the rules).
 
-This extension DOES NOT download and build the Kraken Uniq database itself. It can be used with an existing Kraken database, or the user can build ones per instructions in the Kraken Uniq manual.
+This extension **DOES NOT** download and build the Kraken Uniq database itself. It can be used with an existing Kraken database, or the user can build ones per instructions in the Kraken Uniq manual.
 
     source activate sunbeam 
-    git clone https://github.com/ArwaAbbas/sbx_eggnog/ sunbeam/extensions/sbx_kraken_uniq
+    git clone https://github.com/ArwaAbbas/sbx_kraken_uniq/ sunbeam/extensions/sbx_kraken_uniq
     cat sunbeam/extensions/sbx_kraken_uniq/config.yml >> sunbeam_config.yml
 
 ## Running sbx_kraken_uniq
