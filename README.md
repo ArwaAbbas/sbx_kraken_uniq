@@ -18,7 +18,7 @@ Finally, `sbx_kraken_uniq.rules` contains the actual logic for the extension, in
 
 Installing an extension is as simple as cloning (or moving) your extension directory into the sunbeam/extensions/ folder, installing requirements through Conda, and adding the new options to your existing configuration file: 
 
-This extension has dependencies that conflict with those of [kraken](http://ccb.jhu.edu/software/kraken/) which is used in the regular Sunbeam pipeline. Therefore, it is run with in its own Conda environment (which is accounted for in the rules).
+This extension has dependencies that conflict with those of [kraken](http://ccb.jhu.edu/software/kraken/) which is used in the regular Sunbeam pipeline. Therefore, it is run with in its own Conda environment which is specified when it is run (see below).
 
 This extension **DOES NOT** download and build the Kraken Uniq database itself. It can be used with an existing Kraken database, or the user can build ones per instructions in the Kraken Uniq manual.
 
@@ -31,5 +31,5 @@ This extension **DOES NOT** download and build the Kraken Uniq database itself. 
 To run, simply run Sunbeam as usual with the target rule specified:
 By default, it does not write classified and unclassified reads to separate FASTA files. This output can be added by adjusting the rules if desired.
 
-    sunbeam run --configfile sunbeam_config.yml all_kraken_uniq
+    sunbeam run --configfile sunbeam_config.yml --use-conda all_kraken_uniq
     
