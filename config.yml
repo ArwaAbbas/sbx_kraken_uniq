@@ -1,0 +1,3 @@
+sbx_kraken_uniq:
+  threads: 8
+  kraken_uniq_db_fp: 

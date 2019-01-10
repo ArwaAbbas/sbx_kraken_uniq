@@ -1,0 +1,35 @@
+# -*- mode: Snakemake -*-
+
+rule kraken_uniq_classify:
+	input: 
+		r1 = str(QC_FP/'decontam'/'{sample}_1.fastq.gz'),
+		r2 = str(QC_FP/'decontam'/'{sample}_2.fastq.gz')
+	output:
+		raw = str(CLASSIFY_FP/'kraken_uniq'/'raw'/'{sample}-raw.tsv'),
+		report = str(CLASSIFY_FP/'kraken_uniq'/'report'/'{sample}-reports.tsv')
+	params:
+		paired_end = "--paired" if Cfg['all']['paired_end'] else ""
+	
+	threads: 
+		Cfg['sbx_kraken_uniq']['threads']
+	conda:
+		str(sunbeam_dir+'/extensions/sbx_kraken_uniq/env.yml')
+	shell:
+		"""
+		krakenuniq \
+		--db {Cfg[sbx_kraken_uniq][kraken_uniq_db_fp]} \
+		--gzip-compressed \
+		--fastq-input \
+		{params.paired_end} \
+		--threads {threads} \
+		--output {output.raw} \
+		--report-file {output.report} \
+		 --preload \
+		{input.r1} \
+		{input.r2}
+		"""
+
+rule all_kraken_uniq:
+	input:
+		expand(str(CLASSIFY_FP/'kraken_uniq'/'report'/'{sample}-reports.tsv'),sample=Samples.keys())
+
