@@ -31,5 +31,5 @@ This extension **DOES NOT** download and build the Kraken Uniq database itself. 
 To run, simply run Sunbeam as usual with the target rule specified:
 By default, it does not write classified and unclassified reads to separate FASTA files. This output can be added by adjusting the rules if desired.
 
-    sunbeam run--configfile sunbeam_config.yml all_kraken_uniq
+    sunbeam run --configfile sunbeam_config.yml all_kraken_uniq
     
