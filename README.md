@@ -14,6 +14,8 @@ The `config.yml` contains parameters (threads and database filepath) that the us
 
 Finally, `sbx_kraken_uniq.rules` contains the actual logic for the extension, including required input and output files. Check out [the Snakemake tutorial](http://snakemake.readthedocs.io/en/stable/tutorial/basics.html) and any of the [extensions by sunbeam-labs](https://github.com/sunbeam-labs) for information on how to modify the rules.
 
+Currently the extension only works on PAIRED END READS.
+
 ## Installing the extension
 
 Installing an extension is as simple as cloning (or moving) your extension directory into the sunbeam/extensions/ folder, installing requirements through Conda, and adding the new options to your existing configuration file: 
