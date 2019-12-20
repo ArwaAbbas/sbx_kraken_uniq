@@ -12,7 +12,7 @@ rule kraken_uniq_classify:
        threads:
                Cfg['sbx_kraken_uniq']['threads']
        conda:
-               str(sunbeam_dir+'/extensions/sbx_kraken_uniq/env.yml')
+               "sbx_kraken_uniq_env.yml"
        shell:
                """
                krakenuniq \
